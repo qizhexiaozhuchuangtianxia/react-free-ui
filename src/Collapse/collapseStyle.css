@@ -1,0 +1,23 @@
+.collapse {
+  display: none;
+}
+.collapse.in { display: block; }
+.collapsing {
+  position: relative;
+  overflow: hidden;
+  transition: .35s ease;
+  transition-property: height, visibility;
+}
+.tree-node .tree-node-d{
+  float: left;
+}
+.tree-node .tree-node-text{
+  margin-left:6px;
+}
+.tree-node-arrow{
+  transition: transform .35s ease;
+}
+.tree-node-arrow-rotate{
+  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+}
