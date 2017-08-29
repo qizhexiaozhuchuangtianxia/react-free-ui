@@ -19,7 +19,10 @@ class Node extends Component {
 		e.stopPropagation();
 		this.setState({
 			open:!this.state.open
-		})
+		});
+		if(this.props.onClick){
+			this.props.onClick(this.props.item);
+		}
 	}
 	creatArrowIcon = () => {
 		if(this.props.item.children && this.props.item.children.length>0){

@@ -22,11 +22,14 @@ let data = [{
       name: '三级 2-2-1'
     }]
   }]
-}]
+}];
+function handleOnclick(item){
+  console.log(item,4)
+}
 storiesOf('Tree', module)
   .add('tree', () => (
     <div>
-      <Tree data={data} />
+      <Tree data={data} onClick={handleOnclick}/>
     </div>
   ))
 

@@ -32,16 +32,27 @@ class Tree extends Component {
         return tree
     } 
     loopTree = (data) => data.map((item, index) => {
+        const {
+			onClick
+		} = this.props;
         if (item.children) {
             return (
-                <Node key={item.name} item={item}>
+                <Node key={item.name} item={item} onClick = {onClick}>
                     {this.loopTree(item.children)}
                 </Node> 
             );
         }
-        return <Node key={item.name} item={item} />;
+        return <Node key={item.name} item={item} onClick = {onClick} />;
     });
-
+    handleOnclick = (e) => {
+		e.stopPropagation();
+		this.setState({
+			open:!this.state.open
+		});
+		if(this.props.onClick){
+			this.props.onClick(this.props.item);
+		}
+	}
     render() {
         const {
 			item,

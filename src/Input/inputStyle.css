@@ -1,0 +1,14 @@
+
+  .free-input-cont{
+    position: relative;
+    box-sizing: content-box
+  }
+  .free-input{
+    -web-kit-appearance:none;
+    -moz-appearance: none;
+    display:block;
+    outline:0;
+    border-style:none;
+    box-sizing: border-box;
+    text-indent: 5px;
+  }

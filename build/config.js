@@ -5,6 +5,9 @@ function loadStories() {
     require('../stories/renderToBody.story.js');
     require('../stories/buttons.story.js');
     require('../stories/tree.story.js');
+    require('../stories/input.story.js');
+    require('../stories/table.story.js');
+    require('../stories/dragLineDome.story.js');
 }
 
 configure(loadStories, module);
