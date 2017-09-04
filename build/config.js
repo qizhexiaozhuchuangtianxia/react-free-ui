@@ -8,6 +8,8 @@ function loadStories() {
     require('../stories/input.story.js');
     require('../stories/table.story.js');
     require('../stories/dragLineDome.story.js');
+    require('../stories/positionDialog.story.js');
+    require('../stories/drawer.story.js');
 }
 
 configure(loadStories, module);

@@ -7,12 +7,13 @@ import Collapse from '../Collapse/Collapse';
 import { splitPx, setLineHeight } from '../utils';
 class Node extends Component {
 	static propTypes = {
-		
+		open:PropTypes.bool.isRequired
 	};
 	constructor(props) {
 		super(props);
 		this.state = {
-			open:!false
+			open:props.open,
+			enter:false,
 		};
 	}
 	handleOnclick = (e) => {
@@ -30,6 +31,20 @@ class Node extends Component {
 		}
 		return null;
 	}
+	handleOnMouseEnter = (e) => {
+		e.stopPropagation();
+        this.setState({
+            enter:true
+        });
+       
+    }
+    handleOnMouseLeave = (e) => {
+		e.stopPropagation();
+        this.setState({
+            enter:false
+        });
+        
+    }
 	render() {
 		const {
 			item,
@@ -40,21 +55,27 @@ class Node extends Component {
 			height:	'40px', 
 			width: 'auto',
 			lineHeight:	'40px',
-			marginLeft: item.children ? `${item.level*10}px` : `${item.level*10+16}px`,
-			cursor: 'pointer'
+			paddingLeft: item.children ? `${item.level*10}px` : `${item.level*10+16}px`,
+			cursor: 'pointer',
+			userSelect:'none',
+			backgroundColor:this.state.enter ? 'rgba(0,0,0,0.09)'  : null 
 		}
 		const newNodeStyle = Object.assign(defaultNodeStyle, nodeStyle);
 		const style = setLineHeight(newNodeStyle);
 		const height = splitPx(style.height);
-		
+		const hoverStyle = {
+			backgroundColor:this.state.enter ? 'rgba(0,0,0,0.09)'  : null 
+		}
 		return (
-			<div onClick={ (event) => this.handleOnclick(event) } className='tree-node'>
-				<div style= {style} >
+			<div onClick={ (event) => this.handleOnclick(event) } 
+				className='tree-node'>
+				<div style= {style} onMouseEnter = {(event) => this.handleOnMouseEnter(event) }
+                onMouseLeave = {(event) => this.handleOnMouseLeave(event) } >
 					{this.creatArrowIcon()}
 					<div className='tree-node-d tree-node-text'>{item.name}</div>
 				</div>
 				
-				<Collapse height= { height } childrenLen = { item.children ? item.children.length : 0 } in={this.state.open}>
+				<Collapse in={this.state.open}>
 					<div>
 						{this.props.children}
 					</div>

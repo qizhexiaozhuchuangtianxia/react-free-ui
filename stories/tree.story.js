@@ -29,7 +29,7 @@ function handleOnclick(item){
 storiesOf('Tree', module)
   .add('tree', () => (
     <div>
-      <Tree data={data} onClick={handleOnclick}/>
+      <Tree data={data} onClick={handleOnclick} open={true} />
     </div>
   ))
 

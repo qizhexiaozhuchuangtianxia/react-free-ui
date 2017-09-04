@@ -8,6 +8,7 @@ class RenderToBody extends Component {
     }
     static propTypes = {
         childrenElement:PropTypes.func,
+        update:PropTypes.bool
     }
     componentDidMount(){
         this.renderBody();
@@ -21,11 +22,13 @@ class RenderToBody extends Component {
     renderBody(){
         const {
             childrenElement,
+            style,
+            backgroundColor,
+            update
         } = this.props;
         if(!this.node){
             this.node = document.createElement('div');
             document.body.appendChild(this.node);
-            
             this.node.style.position = 'fixed';
             this.node.style.top = 0;
             this.node.style.bottom = 0;
@@ -33,6 +36,13 @@ class RenderToBody extends Component {
             this.node.style.right = 0;
             this.node.style.zIndex = 9999;
             this.node.style.backgroundColor = 'rgba(0,0,0,0.2)';
+            if(style){
+                Object.keys(style).map( (key) => this.node.style[key]=style[key] )
+            }
+            const childElement = childrenElement();
+            this.nodeElement = unstable_renderSubtreeIntoContainer(this, childElement, this.node);
+        }
+        if(this.node && update){
             const childElement = childrenElement();
             this.nodeElement = unstable_renderSubtreeIntoContainer(this, childElement, this.node);
         }

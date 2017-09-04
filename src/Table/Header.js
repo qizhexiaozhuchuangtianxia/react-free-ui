@@ -16,7 +16,7 @@ class Header extends Component {
 
         return columns.map( (item,index) => {
             return (
-                <th>{item.title}</th>
+                <th key={index}>{item.title}</th>
             )
         });
     }

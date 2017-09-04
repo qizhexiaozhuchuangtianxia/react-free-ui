@@ -12,8 +12,7 @@ const collapseStyles = {
 }
 class Collapse extends Component {
 	static propTypes = {
-		childrenLen:PropTypes.number,
-		height:PropTypes.number
+		
 	};
   handleEnter = (elem) => {
     elem.style.height = '0'; 
@@ -39,9 +38,9 @@ class Collapse extends Component {
 
   render() {
     const { children } = this.props;
-	const newProps = {
-		in:this.props.in
-	}
+    const newProps = {
+      in:this.props.in
+    }
     return (
       <Transition
         {...newProps}
@@ -52,10 +51,12 @@ class Collapse extends Component {
         onExit={this.handleExit}
         onExiting={this.handleExiting}
       >
-        {(state, props) => React.cloneElement(children, {
+        {(state, props) => {
+          return React.cloneElement(children, {
           ...props,
           className: collapseStyles[state]
-        })}
+        })
+        }}
       </Transition>
     );
   }

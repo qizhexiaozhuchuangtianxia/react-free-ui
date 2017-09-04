@@ -1,0 +1,10 @@
+.trigger {
+  display: none;
+}
+.trigger.in { display: block; }
+.triggering {
+  position: relative;
+  overflow: hidden;
+  transition: .3s ease;
+  transition-property: height, visibility;
+}

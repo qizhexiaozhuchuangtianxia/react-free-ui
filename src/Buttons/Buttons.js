@@ -13,7 +13,6 @@ function setStyle(state,style,hoverColors){
         cursor: 'pointer', 
         textDecoration: 'none', 
         margin: '0px', 
-        padding: '0px 10px', 
         outline: 'none', 
         position: 'relative', 
         zIndex: 1, 
@@ -39,24 +38,26 @@ function setIconStyle(leftIconStyle,rightIconStyle){
     let iconStyle = {
         leftIconStyle : {
             verticalAlign: 'middle',
-            // position: 'absolute',
             left:'12px',
-            // top: '0',
             marginRight:'8px',
             overflow: 'hidden',
             textIndent: '0px',
         },
         rightIconStyle : {
             verticalAlign: 'middle',
-            // position: 'absolute',
             right:'12px',
             marginLeft:'8px',
             color:'#CCC',
-            // top: '0',
             overflow: 'hidden',
             textIndent: '0px',
         }
     };
+    if(leftIconStyle){
+        iconStyle.leftIconStyle=Object.assign(iconStyle.leftIconStyle,leftIconStyle);
+    }
+    if(rightIconStyle){
+        iconStyle.rightIconStyle=Object.assign(iconStyle.rightIconStyle,rightIconStyle);
+    }
     return iconStyle;
 }
 
@@ -118,11 +119,12 @@ class Buttons extends Component {
                 onMouseEnter = {this.handleOnMouseEnter}
                 onMouseLeave = {this.handleOnMouseLeave}>
                 <WaterRippleTouch>
-                    {this.creatIcon(iconStyle.leftIconStyle,leftIcon)}
-                    <span>{text}</span>
-                    {this.creatIcon(iconStyle.rightIconStyle,rightIcon)}
+                    <div style={{margin:'0 20px'}}>
+                        {this.creatIcon(iconStyle.leftIconStyle,leftIcon)}
+                        <span>{text}</span>
+                        {this.creatIcon(iconStyle.rightIconStyle,rightIcon)}
+                    </div>
                 </WaterRippleTouch>
-
             </button>
             
         )

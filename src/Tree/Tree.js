@@ -9,9 +9,13 @@ class Tree extends Component {
         item : PropTypes.object,
 		treeStyle : PropTypes.object,
         nodeStyle : PropTypes.object,
+        open:PropTypes.bool.isRequired
     };
     constructor(props) {
         super(props);
+        this.state = {
+			open:props.open
+		};
     }
     loopTreeData = (data, goal) => {
         var tree = JSON.parse(JSON.stringify(data));
@@ -33,16 +37,16 @@ class Tree extends Component {
     } 
     loopTree = (data) => data.map((item, index) => {
         const {
-			onClick
+            onClick,
 		} = this.props;
         if (item.children) {
             return (
-                <Node key={item.name} item={item} onClick = {onClick}>
+                <Node key={item.name} item={item} onClick = {onClick} open={this.state.open}>
                     {this.loopTree(item.children)}
                 </Node> 
             );
         }
-        return <Node key={item.name} item={item} onClick = {onClick} />;
+        return <Node key={item.name} item={item} onClick = {onClick} open={this.state.open}/>;
     });
     handleOnclick = (e) => {
 		e.stopPropagation();

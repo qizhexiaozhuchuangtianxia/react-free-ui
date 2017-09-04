@@ -16,7 +16,8 @@
     "react-dom": "^15.6.1",
     "react-event-listener": "^0.4.5",
     "react-tap-event-plugin": "^2.0.1",
-    "react-transition-group": "^2.2.0"
+    "react-transition-group": "^2.2.0",
+    "styled-components": "^2.1.2"
   },
   "devDependencies": {
     "@storybook/react": "^3.2.3",
