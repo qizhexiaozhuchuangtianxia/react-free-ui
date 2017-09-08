@@ -10,6 +10,7 @@ function loadStories() {
     require('../stories/dragLineDome.story.js');
     require('../stories/positionDialog.story.js');
     require('../stories/drawer.story.js');
+    require('../stories/tab.story.js');
 }
 
 configure(loadStories, module);

@@ -62,7 +62,8 @@ class Drawer extends Component {
             direction,
             width,
             height,
-            time
+            time,
+            children
         } = this.props;
         let drawerPosition = this.setDrawerPosition();
 
@@ -73,16 +74,21 @@ class Drawer extends Component {
             height: '100%',
             backgroundColor:'rgba(0,0,0,0.1)',
             border:'2px solid red'
-        }
+        };
+
         const newStyle = Object.assign(defaultStyle, drawerPosition);
+
         return (
             <DrawerTransition
                 in={open}
                 direction={direction}
                 pixels={width || height}
                 time={time}>
-                
-                <div style={newStyle} >232342344</div>
+                {
+                    React.cloneElement(children, {
+                        style: newStyle,
+                    })
+                }
             </DrawerTransition>
         )
     }

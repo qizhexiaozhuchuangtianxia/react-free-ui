@@ -1,0 +1,9 @@
+.drawer {
+  display: block;
+  transition: transform 1s ease;
+}
+.drawer.in { display: block; }
+.drawering {
+  transition: transform 1s ease;
+  transition-property: height, visibility;
+}

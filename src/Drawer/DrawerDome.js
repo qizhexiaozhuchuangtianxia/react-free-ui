@@ -23,7 +23,9 @@ class DrawerDome extends Component {
         return (
             <div>
                 <button style={{marginLeft:'300px'}} onClick={this.handleClick}>drawe按钮</button>
-                <Drawer direction='left' open={this.state.open} width={200} time={400}/>
+                <Drawer direction='left' open={this.state.open} width={200} time={400}>
+                    <div>3333333333333333</div>
+                </Drawer>
             </div>
         )
 
