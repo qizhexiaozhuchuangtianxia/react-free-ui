@@ -2,24 +2,24 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Table } from '../src/Table';
 const columns = [{
-  title: 'Name',
+  title: '姓名',
   dataIndex: 'name',
   width: 200,
 }, {
-  title: 'Age',
+  title: '年龄',
   dataIndex: 'age',
   width: 200,
 }, {
-  title: 'Address',
+  title: '地址',
   dataIndex: 'address',
 }];
 
 const data = [];
 for (let i = 0; i < 57; i++) {
   data.push({
-    name: `Edward King ${i}`,
-    age: 32,
-    address: `London, Park Lane no. ${i}`,
+    name: `Hello ${i}`,
+    age: i,
+    address: `北京市朝阳区 ${i}`,
   });
 }
 storiesOf('Table', module)

@@ -53,6 +53,7 @@ class TabPanes extends Component {
         const paneStyle = {
             position:'absolute',
             left: left,
+            padding:'10px'
         };
         const newProps = {
             ...this.props,

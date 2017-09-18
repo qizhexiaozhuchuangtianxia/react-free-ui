@@ -53,7 +53,7 @@ class Tab extends Component {
 		const defaultStyle = {
             width: width ? width : '100%',
             height:`${height||heights}px`,
-            border:'1px solid red',
+            border:'1px solid #ccc',
             overflow:'hidden',
         };
         let navs = React.Children.toArray(children).map( item => item.props.nav);

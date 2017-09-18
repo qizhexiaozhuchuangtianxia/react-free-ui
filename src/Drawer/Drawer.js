@@ -73,7 +73,7 @@ class Drawer extends Component {
             width: '100%',
             height: '100%',
             backgroundColor:'rgba(0,0,0,0.1)',
-            border:'2px solid red'
+            border:'1px solid #ccc'
         };
 
         const newStyle = Object.assign(defaultStyle, drawerPosition);
