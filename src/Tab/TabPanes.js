@@ -27,6 +27,8 @@ class TabPanes extends Component {
         if(selectedNav > key){
             left='-100%';
         }
+
+        //每次只渲染两张,当前和下一张,点击切换时,根据点击上一次做出判断,当前张运动的方向,下一张开始的位置
         
         // //当前离开 左移
         // if(preSelected < selectedNav && key === preSelected){
