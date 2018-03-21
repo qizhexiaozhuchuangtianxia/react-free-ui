@@ -9,7 +9,7 @@ class Input extends Component {
 
     static propTypes = {
         columns : PropTypes.array,
-        data : PropTypes.array,
+        dataSource : PropTypes.array,
         scroll: PropTypes.object
     };
     
@@ -20,13 +20,11 @@ class Input extends Component {
     render() {
         const {
 			columns,
-            data,
-            scroll
 		} = this.props;
         return (
             <div className='table-free'>
                 <Header columns={columns}/>
-                <Body columns={columns} data={data} scroll={scroll}/>
+                <Body {...this.props}/>
             </div>
         )
     }

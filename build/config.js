@@ -11,6 +11,7 @@ function loadStories() {
     require('../stories/positionDialog.story.js');
     require('../stories/drawer.story.js');
     require('../stories/tab.story.js');
+    require('../stories/drag.story.js');
 }
 
 configure(loadStories, module);

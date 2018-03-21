@@ -44,7 +44,10 @@ class Node extends Component {
             enter:false
         });
         
-    }
+	}
+	drag =() => {
+		console.log('drog')
+	}
 	render() {
 		const {
 			item,
@@ -66,9 +69,12 @@ class Node extends Component {
 		const hoverStyle = {
 			backgroundColor:this.state.enter ? 'rgba(0,0,0,0.09)'  : null 
 		}
+		
 		return (
 			<div onClick={ (event) => this.handleOnclick(event) } 
-				className='tree-node'>
+				className='tree-node'
+				draggable='true'
+				onDragStart={this.drag}>
 				<div style= {style} onMouseEnter = {(event) => this.handleOnMouseEnter(event) }
                 onMouseLeave = {(event) => this.handleOnMouseLeave(event) } >
 					{this.creatArrowIcon()}

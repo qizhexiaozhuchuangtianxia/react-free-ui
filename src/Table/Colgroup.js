@@ -10,7 +10,8 @@ class Colgroup extends Component {
     creatColgroup = () => {
         const {
 			columns,
-		} = this.props;
+        } = this.props;
+        
         return (
             <colgroup>
                 {

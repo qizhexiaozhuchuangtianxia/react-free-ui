@@ -7,6 +7,7 @@ import Table from './Table/Table';
 import DragLine from './DragLine/DragLine';
 import PositionDialog from './PositionDialog/PositionDialog';
 import Tab from './Tab/Tab';
+import Drag from './Drag/Drag';
 export { 
     Buttons,
     Dialog,
@@ -16,5 +17,6 @@ export {
     Table,
     DragLine,
     PositionDialog,
-    Tab
+    Tab,
+    Drag
 };
